@@ -1,5 +1,6 @@
 {
   "name": "toolbox-server",
+  "start": "yarn run",
   "version": "1.0.0",
   "description": "server for toolbox react native app",
   "main": "index.js",
