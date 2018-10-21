@@ -1,9 +1,11 @@
 {
   "name": "toolbox-server",
-  "start": "yarn run",
   "version": "1.0.0",
   "description": "server for toolbox react native app",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": "https://github.com/coreyarch1234/toolbox-server.git",
   "author": "Corey Harrilal <corey@way2b1.com>",
   "license": "MIT",
@@ -14,6 +16,7 @@
     "express-handlebars": "^3.0.0",
     "heroku": "^7.18.3",
     "mongodb": "^3.1.8",
-    "mongoose": "^5.3.4"
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.18.4"
   }
 }

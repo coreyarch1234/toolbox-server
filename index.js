@@ -2,7 +2,7 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const app = express();
-const bodyParser ;
+const bodyParser = require('body-parser');
 const port = 3000;
 
 // Setting up Database
@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/toolbox-server', {
-  useMongoClient: true,
+  useNewUrlParser: true,
   /* other options */
 });
 
@@ -33,4 +33,9 @@ db.once('open', function() {
     console.log('server started: ' + port);
     console.log('env port' + process.env.PORT);
   });
+});
+
+//routes
+app.get('/test', (req, res) => {
+  res.send({hello: 'world'});
 });
