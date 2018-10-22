@@ -35,7 +35,13 @@ db.once('open', function() {
   });
 });
 
-//routes
-app.get('/test', (req, res) => {
-  res.send({hello: 'world'});
+// Routes
+
+// Create a tool
+app.get('/tools', (req, res) => {
+  res.send({
+    title: 'Some sort of analogy',
+    description: 'Well, you know how it goes',
+    id: 5,
+  });
 });
