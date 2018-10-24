@@ -9,6 +9,8 @@ const port = 3000;
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 
+const Tool = require("./models/Tool");
+
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/toolbox-server', {
   useNewUrlParser: true,
@@ -44,4 +46,16 @@ app.get('/tools', (req, res) => {
     description: 'Well, you know how it goes',
     id: 5,
   });
+});
+
+app.post('/tools', (req, res) => {
+  const tool = req.body;
+
+  Tool.create(tool, (err, savedTool) => {
+    if (err) console.log(err);
+
+    console.log('new tool created',savedTool);
+
+    res.send(savedTool);
+  })
 });
